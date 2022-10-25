@@ -19,18 +19,46 @@ import ballerina/log;
 import ballerina/random;
 
 configurable string currencyHost = "localhost";
+@display {
+    label: "CurrencyService",
+    id: "currency"
+}
 final CurrencyServiceClient currencyClient = check new ("http://" + currencyHost + ":9093");
 configurable string catalogHost = "localhost";
+@display {
+    label: "ProductCatalogService",
+    id: "catalog"
+}
 final ProductCatalogServiceClient catalogClient = check new ("http://" + catalogHost + ":9091");
 configurable string cartHost = "localhost";
+@display {
+    label: "CartService",
+    id: "cart"
+}
 final CartServiceClient cartClient = check new ("http://" + cartHost + ":9092");
 configurable string shippingHost = "localhost";
+@display {
+    label: "ShippingService",
+    id: "shipping"
+}
 final ShippingServiceClient shippingClient = check new ("http://" + shippingHost + ":9095");
 configurable string recommandHost = "localhost";
+@display {
+    label: "RecommendationService",
+    id: "recommendation"
+}
 final RecommendationServiceClient recommandClient = check new ("http://" + recommandHost + ":9090");
 configurable string adHost = "localhost";
+@display {
+    label: "AdService",
+    id: "ads"
+}
 final AdServiceClient adClient = check new ("http://" + adHost + ":9099");
 configurable string checkoutHost = "localhost";
+@display {
+    label: "CheckoutService",
+    id: "checkout"
+}
 final CheckoutServiceClient checkoutClient = check new ("http://" + checkoutHost + ":9094");
 
 isolated function getSupportedCurrencies() returns string[]|error {

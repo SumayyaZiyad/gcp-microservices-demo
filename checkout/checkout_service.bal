@@ -27,13 +27,41 @@ configurable string shippingHost = "localhost";
 configurable string paymentHost = "localhost";
 configurable string emailHost = "localhost";
 
+@display {
+    label: "CheckoutService",
+    id: "checkout"
+}
 @grpc:ServiceDescriptor {descriptor: ROOT_DESCRIPTOR_DEMO, descMap: getDescriptorMapDemo()}
 service "CheckoutService" on ep {
+    @display {
+        label: "CartService",
+        id: "cart"
+    }
     final CartServiceClient cartClient;
+    @display {
+        label: "ProductCatalogService",
+        id: "catalog"
+    }
     final ProductCatalogServiceClient catalogClient;
+    @display {
+        label: "CurrencyService",
+        id: "currency"
+    }
     final CurrencyServiceClient currencyClient;
+    @display {
+        label: "ShippingService",
+        id: "shipping"
+    }
     final ShippingServiceClient shippingClient;
+    @display {
+        label: "PaymentService",
+        id: "payment"
+    }
     final PaymentServiceClient paymentClient;
+     @display {
+        label: "EmailService",
+        id: "email"
+    }
     final EmailServiceClient emailClient;
 
     function init() returns error? {

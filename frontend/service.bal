@@ -52,6 +52,10 @@ AuthInterceptor authInterceptor = new;
     },
     interceptors: [authInterceptor]
 }
+@display {
+    label: "FrontEnd",
+    id: "frontend"
+}
 service / on ep {
 
     resource function get metadata(@http:Header {name: "Cookie"} string cookieHeader)

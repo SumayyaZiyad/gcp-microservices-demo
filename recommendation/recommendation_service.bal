@@ -20,8 +20,16 @@ import ballerina/log;
 listener grpc:Listener ep = new (9090);
 configurable string catalogHost = "localhost";
 
+@display {
+    label: "RecommendationService",
+    id: "recommendation"
+}
 @grpc:ServiceDescriptor {descriptor: ROOT_DESCRIPTOR_DEMO, descMap: getDescriptorMapDemo()}
 service "RecommendationService" on ep {
+    @display {
+        label: "ProductCatalogService",
+        id: "catalog"
+    }
     final ProductCatalogServiceClient catalogClient;
 
     function init() returns error? {
